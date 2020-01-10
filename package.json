@@ -1,0 +1,41 @@
+{
+  "name": "react-app-rewire-html-webpack-plugin",
+  "version": "1.0.1",
+  "description": "Let you override html-webpack-plugin options in react-scripts",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "keywords": [
+    "create-react-app",
+    "react-scripts",
+    "react-app-rewired",
+    "react-app-rewire",
+    "html-webpack-plugin"
+  ],
+  "license": "MIT",
+  "author": "Cheng Han<dongdon0639@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cheng0639/react-app-rewire-html-webpack-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Cheng0639/react-app-rewire-html-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/Cheng0639/react-app-rewire-html-webpack-plugin#readme",
+  "dependencies": {
+    "deepmerge": "^4.2.2"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^4.2.1",
+    "prettier": "^1.7.0"
+  },
+  "peerDependencies": {
+    "react-app-rewired": "^2.1.5"
+  },
+  "lint-staged": {
+    "*.js": ["prettier --write", "git add"],
+    "*.json": ["prettier --parser json --write", "git add"]
+  }
+}
