@@ -5,8 +5,8 @@ Let you to override [html-webpack-plugin](https://github.com/jantimon/html-webpa
 ## Install
 
 ```bash
-$ yarn add react-app-rewired react-app-rewire-aliases -D
-$ npm install react-app-rewired react-app-rewire-aliases --save-dev
+$ yarn add react-app-rewired react-app-rewire-html-webpack-plugin -D
+$ npm install react-app-rewired react-app-rewire-html-webpack-plugin --save-dev
 ```
 
 ## Usage
@@ -19,7 +19,6 @@ const rewireHtmlWebpackPlugin = require('react-app-rewire-html-webpack-plugin')
 module.exports = function override(config, env) {
   const overrideConfig = {}
   config = rewireHtmlWebpackPlugin(config, env, overrideConfig)
-  return config;
+  return config
 }
-
 ```
