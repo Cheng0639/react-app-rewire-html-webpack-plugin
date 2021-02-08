@@ -1,6 +1,6 @@
 {
   "name": "react-app-rewire-html-webpack-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Let you override html-webpack-plugin options in react-scripts",
   "main": "index.js",
   "scripts": {
