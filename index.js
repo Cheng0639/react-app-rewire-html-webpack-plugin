@@ -1,4 +1,5 @@
 const deepMerge = require('deepmerge')
+const semver = require('semver')
 
 /**
  * @param {object} config
@@ -6,16 +7,21 @@ const deepMerge = require('deepmerge')
  * @param {object} htmlWebpackPluginOptions
  */
 function rewireHtmlWebpackPlugin(config, env, htmlWebpackPluginOptions = {}) {
+  let optionKey = 'options'
+  const webpack = require('webpack')
+  if (semver.major(webpack.version) === 5) {
+    optionKey = 'userOptions'
+  }
+
   const htmlWebpackPlugin = config.plugins.find(
     plugin => plugin.constructor.name === 'HtmlWebpackPlugin'
   )
-
   if (!htmlWebpackPlugin) {
     throw new Error("Can't find HtmlWebpackPlugin")
   }
 
-  htmlWebpackPlugin.options = deepMerge(
-    htmlWebpackPlugin.options,
+  htmlWebpackPlugin[optionKey] = deepMerge(
+    htmlWebpackPlugin[optionKey],
     htmlWebpackPluginOptions
   )
 

@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/Cheng0639/react-app-rewire-html-webpack-plugin#readme",
   "dependencies": {
-    "deepmerge": "^4.2.2"
+    "deepmerge": "^4.2.2",
+    "semver": "^7.3.5"
   },
   "devDependencies": {
     "husky": "^0.14.3",
@@ -32,7 +33,8 @@
     "prettier": "^1.7.0"
   },
   "peerDependencies": {
-    "react-app-rewired": "^2.1.5"
+    "react-app-rewired": "^2.1.5",
+    "webpack": "*"
   },
   "lint-staged": {
     "*.js": ["prettier --write", "git add"],
