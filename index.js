@@ -1,3 +1,7 @@
+// @ts-check
+
+const path = require('path')
+
 const deepMerge = require('deepmerge')
 const semver = require('semver')
 
@@ -7,11 +11,7 @@ const semver = require('semver')
  * @param {object} htmlWebpackPluginOptions
  */
 function rewireHtmlWebpackPlugin(config, env, htmlWebpackPluginOptions = {}) {
-  let optionKey = 'options'
-  const webpack = require('webpack')
-  if (semver.major(webpack.version) === 5) {
-    optionKey = 'userOptions'
-  }
+  const optionKey = htmlWebpackPluginOptionKey()
 
   const htmlWebpackPlugin = config.plugins.find(
     plugin => plugin.constructor.name === 'HtmlWebpackPlugin'
@@ -26,6 +26,25 @@ function rewireHtmlWebpackPlugin(config, env, htmlWebpackPluginOptions = {}) {
   )
 
   return config
+}
+
+function htmlWebpackPluginOptionKey() {
+  const version = htmlWebpackPluginVersion()
+  let optionKey = 'options'
+
+  if (semver.major(version) === 5 && semver.lt(version, '5.5.4')) {
+    optionKey = 'userOptions'
+  }
+
+  return optionKey
+}
+
+function htmlWebpackPluginVersion() {
+  const packageJson = require(path.resolve(
+    'node_modules/html-webpack-plugin/package.json'
+  ))
+
+  return packageJson.version
 }
 
 module.exports = rewireHtmlWebpackPlugin

@@ -34,6 +34,7 @@
   },
   "peerDependencies": {
     "react-app-rewired": "^2.1.5",
+    "html-webpack-plugin": "*",
     "webpack": "*"
   },
   "lint-staged": {
