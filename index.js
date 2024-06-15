@@ -40,9 +40,7 @@ function htmlWebpackPluginOptionKey() {
 }
 
 function htmlWebpackPluginVersion() {
-  const packageJson = require(path.resolve(
-    'node_modules/html-webpack-plugin/package.json'
-  ))
+  const packageJson = require('html-webpack-plugin/package.json')
 
   return packageJson.version
 }
